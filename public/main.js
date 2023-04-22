@@ -27,13 +27,14 @@ urlForm.addEventListener("submit", (url)=>{
  
     };
 
+    //Getting Url Content
     getUrlContent(address);
     
 
 });
 
 const urlCheck = (url) => {
-
+    //Checking if the URL is valid
     try{
 
         new URL (url);
@@ -48,13 +49,19 @@ const urlCheck = (url) => {
     return true;
 };
 
+
+//Typing to Summary
 const typeToSummary = (content)=>{
     let summary = document.getElementById("summary");
     summary.textContent=content;
 };
 
+//Getting Url Content with Server
 async function getUrlContent (url){
+    //Prepping JSON
     url = {url};
+
+    //POST Request to Backend to Retrieve HTML
     const content = await fetch('/api', {
         method: 'POST',
         headers: {
@@ -63,8 +70,10 @@ async function getUrlContent (url){
         body: JSON.stringify(url)
     });
 
+    //Returned Content from the POST request
     let returnContent = await content.json();
     
+    //ASYNC function to get value from promise
     const o = async () =>{
         console.log("OUT");
         let a = await JSON.stringify(returnContent.body.a);
@@ -72,5 +81,6 @@ async function getUrlContent (url){
         typeToSummary(a);
     }
 
+    //Running the async Function
     o();
 };
