@@ -1,0 +1,40 @@
+html{
+    margin: 0px;
+}
+
+body{
+    background: grey;
+}
+
+.first-section{
+    padding-top: 27vh;
+    font-size: x-large;
+}
+
+.url-box{
+    text-align:center;
+    width: auto;
+}
+
+.summary-box{
+    text-align: center;
+    padding-top: 5vh;
+    width: 50vw;
+    padding-left: 25vw
+    
+}
+
+.summary-container{
+    background: darkgray;
+    min-height: 40vh;
+    min-width: 50vw;
+    border-radius: 20px;
+    border-style: solid;
+    border-color:  #bfbfbf;
+}
+
+#summary{
+    font-size: x-large;
+    justify-content:center;
+    
+}
