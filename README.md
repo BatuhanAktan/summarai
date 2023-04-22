@@ -29,7 +29,7 @@ To fix it I will train the model with user based data. I am hoping to implement 
 
 ### Results
 
-In Conclusion, The website is capable of creating a basic summary 
+ The website is capable of creating a basic summary from a given website using its machine learning algorithm. 
 |![Target Website](https://github.com/BatuhanAktan/PersonalWebsite/blob/master/images/sourceurl.png?raw=true)|![Result](https://github.com/BatuhanAktan/PersonalWebsite/blob/master/images/resultsummarai.png?raw=true)|
 |:---:|:---:|
 |Source Website | Resulting Summary |
