@@ -19,7 +19,6 @@ app.post('/api', (request, response) => {
   .then(response => response.text())
   .then(async html => {
     // Create a new DOM parser to parse the HTML content
-    var htmlDoc = new JSDOM(html);
     // Extract the visible text content from the HTML content
     const options = {
         ignoreHref: true,
