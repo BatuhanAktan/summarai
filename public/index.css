@@ -31,6 +31,7 @@ body{
     border-radius: 20px;
     border-style: solid;
     border-color:  #bfbfbf;
+    justify-content: center;
 }
 
 #summary{
@@ -39,4 +40,21 @@ body{
     max-width: 40vw;
     padding-left: 5vw;
     
+}
+
+#rating{
+    display: none;
+}
+
+.table-response{
+    margin-left: auto;
+    margin-right:auto;
+}
+
+td {
+    padding: 15px;
+}
+
+#feedback{
+    display:none;
 }
