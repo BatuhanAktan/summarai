@@ -11,10 +11,7 @@ const port = process.env.PORT || 3001;
 
 const app = express();
 const conargs = {
-  host: "us-cdbr-east-06.cleardb.net",
-  user: "b4e2217654c222",
-  password: "4a20cd77",
-  database: "heroku_1382bb1b27d36f0"
+
 };
 //Requirements for express
 app.use(cors());
@@ -71,10 +68,13 @@ app.post('/api', (request, response) => {
 
     const $ = cheerio.load(rsp.data);
 
+    //Getting all the p elements
     var text = "";
     $("p").each(function(i, element){
         text+= " " + $(element).text();
     });
+
+    //logging
     console.log(text);
 
     //summarize according to the extracted text
@@ -153,6 +153,7 @@ app.post("/database", (request, response) => {
   }
 });
 
+//Adding database interface for PrioList
 function getID () {
   var con = sql.createConnection(conargs);
   
@@ -172,14 +173,9 @@ function getID () {
   });
 }
 
-
+//Adding Functionality for PrioList
 function addList (id) {
-  var con = sql.createConnection({
-    host: "us-cdbr-east-06.cleardb.net",
-    user: "b4e2217654c222",
-    password: "4a20cd77",
-    database: "heroku_1382bb1b27d36f0"
-  });
+  var con = sql.createConnection(conargs);
 
   con.connect(function(err) {
     if (err) throw err;
@@ -207,38 +203,7 @@ function addList (id) {
   })
 }
 
-
-async function summarize(ask){
-    //Making request to the ML model.
-    try{
-      let value = await fetch(
-          "https://api-inference.huggingface.co/models/Alred/t5-small-finetuned-summarization-cnn-ver3",
-      {
-        headers: { Authorization: "Bearer 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" },
-        method: "POST",
-        body: JSON.stringify(ask),
-          }
-      ).then(response => response.json())
-      .then((rsp)=> {
-          console.log(JSON.stringify(rsp));
-          try{
-            var err = rsp[0].error.length;
-            console.log("err", err);
-            return rsp[0].error;
-          }catch{
-            console.log(rsp[0].summary_text);
-            return rsp[0].summary_text;
-          }
-      });
-
-      let out = await value;
-
-      return out;
-    }catch(error){
-      console.log("Error", error);
-    }
-}
-
+//Prio List Scrape functionality.
 async function scrape(url) {
   try{
   const response = await axios.request({
@@ -267,6 +232,37 @@ async function scrape(url) {
     return null;
   }
 
+}
+
+async function summarize(ask){
+    //Making request to the ML model.
+    try{
+      let value = await fetch(
+          "https://api-inference.huggingface.co/models/Alred/t5-small-finetuned-summarization-cnn-ver3",
+      {
+        headers: { Authorization: "" },
+        method: "POST",
+        body: JSON.stringify(ask),
+          }
+      ).then(response => response.json())
+      .then((rsp)=> {
+          console.log(JSON.stringify(rsp));
+          try{
+            var err = rsp[0].error.length;
+            console.log("err", err);
+            return rsp[0].error;
+          }catch{
+            console.log(rsp[0].summary_text);
+            return rsp[0].summary_text;
+          }
+      });
+
+      let out = await value;
+
+      return out;
+    }catch(error){
+      console.log("Error", error);
+    }
 }
 
 //Starting the App.
