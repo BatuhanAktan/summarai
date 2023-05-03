@@ -77,6 +77,7 @@ async function getUrlContent (url){
     const o = async () =>{
         console.log("OUT");
         let a = await JSON.stringify(returnContent.body.a);
+        a = a.slice(1,-1);
         console.log("OUT", a);
         typeToSummary(a);
     }
