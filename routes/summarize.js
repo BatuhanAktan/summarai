@@ -57,7 +57,7 @@ async function summarize(ask){
       let value = await fetch(
           "https://api-inference.huggingface.co/models/Alred/t5-small-finetuned-summarization-cnn-ver3",
       {
-        headers: { Authorization: "" },
+        headers: { Authorization: "Bearer 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" },
         method: "POST",
         body: JSON.stringify(ask),
           }
