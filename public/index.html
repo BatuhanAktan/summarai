@@ -4,6 +4,9 @@
         <link rel="stylesheet" href="index.css">
     </head>
     <body>
+        <div class="feedback">
+            <span>Thank you for your Feedback!</span>
+        </div>
         <div class="first-section">
             <div class="url-box">
                 <form action="" id="url-form">
@@ -21,7 +24,44 @@
                 <h1>Summary: </h1>
                 <p id="summary"></p>
             </div>
+            <div class="rating-container">
+                <div id="rating" display="none">
+                    <label>Rate the Summary</label>
+                    <br>
+                    <table class="table-response">
+                        <tr>
+                            <td>
+                                <label>Poor</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=1>
+                            </td>
+                            <td>
+                                <label>Ok</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=2>
+                            </td>
+                            <td>
+                                <label>Good</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=3>
+                            </td>
+                            <td>
+                                <label>Great</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=4>
+                            </td>
+                            <td>
+                                <label>Perfect</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=5>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" id="rating-submit">
+                </div>
+            </div>
         </div>
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="main.js"></script>
 </html>

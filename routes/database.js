@@ -2,21 +2,31 @@ var sql = require('mysql');
 const express = require("express");
 const router = express.Router();
 const conargs = {
-
+    host: "us-cdbr-east-06.cleardb.net",
+    user: "b4e2217654c222",
+    password: "4a20cd77",
+    database: "heroku_1382bb1b27d36f0"
 };
 
 
-router.post("/rating", (request, response) => {
+router.post("/", (request, response) => {
     console.log("DATABASE");
     var con = sql.createConnection(conargs);
+    try{
 
-    var url = request.rating;
-    console.log("URL", url);
-    con.connect(function(err){
+    const rating = parseInt(request.body.rating);
+    const rsp = request.body.response;
+    const url = request.body.url;
+
+    con.query(`INSERT INTO modeldata(url, response, rating) VALUES ("${url}", "${rsp}", ${rating});`, function(err){
         if (err) throw err;
-        
-        con.query(`INSERT INTO modeldata(url, response, rating) VALUES (${url}, ${response}, ${rating});`)
     });
+    
+    } catch (err) {
+        console.log(err);
+    }
+
+    con.end();
 });
 
 module.exports = router;

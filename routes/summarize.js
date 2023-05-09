@@ -32,7 +32,6 @@ router.post('/', (request, response) => {
     $('[class=paragraph]').each(function(i, element){
         text+= " " + $(element).text();
     });
-    console.log(text);
     //summarize according to the extracted text
     let out = summarize({"inputs": text});
 

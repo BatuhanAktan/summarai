@@ -7,7 +7,7 @@ body{
 }
 
 .first-section{
-    padding-top: 27vh;
+    padding-top: 15vh;
     font-size: x-large;
 }
 
@@ -20,7 +20,8 @@ body{
     text-align: center;
     padding-top: 5vh;
     width: 50vw;
-    padding-left: 25vw
+    padding-left: 25vw;
+    position: relative;
     
 }
 
@@ -51,6 +52,23 @@ td {
     padding: 15px;
 }
 
-#feedback{
-    display:none;
+.feedback{
+    background: darkgray;
+    border-color:  #bfbfbf;
+    border-radius: 20px;
+    padding: 10px;
+    font-size: large;
+    display: none; 
+    position:absolute;
+}
+
+.rating-container{
+    justify-content: center;
+}
+
+#rating{
+    bottom:0;
+    padding-top:2vh;
+    padding-bottom: 2vh;
+    font-size: larger; 
 }

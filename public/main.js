@@ -1,7 +1,6 @@
 
 let urlForm = document.getElementById("url-form");
-
-
+let rating = document.getElementById("rating-submit");
 addEventListener("load", (event) => {
     startModel();
 
@@ -16,7 +15,6 @@ urlForm.addEventListener("submit", (url)=>{
     let address = urlLocation.value;
 
     //Setting url to None
-    urlLocation.value = "";
 
     //Preventing Default
     url.preventDefault();
@@ -37,6 +35,23 @@ urlForm.addEventListener("submit", (url)=>{
 
 });
 
+rating.addEventListener("click", () => {
+    var elements = document.getElementsByName('response-quality');
+    var val = 0;
+    var modelResp = document.getElementById("summary").innerHTML;
+    for (i = 0; i < elements.length; i++){
+        if (elements[i].checked){
+            val = elements[i].value;
+        }
+    }
+    
+    if (val != 0 && modelResp.length > 0 && modelResp != "That Url doesn't seem to work!"){
+        var urlAddress = document.getElementById("url").value;
+        $("div.feedback").fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
+        recordRating(val, urlAddress, modelResp);
+    }
+
+});
 const urlCheck = (url) => {
     //Checking if the URL is valid
     try{
@@ -55,7 +70,7 @@ const urlCheck = (url) => {
 
 
 //Typing to Summary
-const typeToSummary = (content, url)=>{
+const typeToSummary = (content)=>{
     let summary = document.getElementById("summary");
     summary.textContent=content;
 };
@@ -63,26 +78,25 @@ const typeToSummary = (content, url)=>{
 
 
 
-/*
+
 async function recordRating(rating, url, response){
-    toggleOff();
-    const content = await fetch('/database/rating', {
+    rating = {rating,
+        url,
+        response};
+    console.log("ratoing", JSON.stringify(rating));
+    const content = await fetch('/database', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        rating: JSON.stringify(rating),
-        url: JSON.stringify(url),
-        response: JSON.stringify(response)
+        body: JSON.stringify(rating)
     });
 }
-*/
+
 
 //Getting Url Content with Server
 async function getUrlContent (url){
     //Prepping JSON
-    var urlAddress = url;
-    console.log(url);
     url = {url};
 
     //POST Request to Backend to Retrieve HTML
@@ -103,7 +117,7 @@ async function getUrlContent (url){
         let a = await JSON.stringify(returnContent.body.a);
         a = a.slice(1,-1);
         console.log("OUT", a);
-        typeToSummary(a, urlAddress);
+        typeToSummary(a);
     }
 
     //Running the async Function
