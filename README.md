@@ -33,11 +33,13 @@ Version 1 has been released, the website is now capable of summarizing websites 
 
  The website is capable of creating a basic summary from a given website using its machine learning algorithm. 
 |![Target Website](https://github.com/BatuhanAktan/PersonalWebsite/blob/master/images/sourceurl.png?raw=true)|![Result](https://github.com/BatuhanAktan/PersonalWebsite/blob/master/images/resultsummarai.png?raw=true)|
+|:---:|:---:|
+|Source Website | Resulting Summary |
 
 The Website on its V1 release accepts user feedback, as well as, using a more optimized AI model to summarize.
 |![Target Website](https://github.com/BatuhanAktan/PersonalWebsite/blob/master/images/sourceurl.png?raw=true)|![V1 Result](https://github.com/BatuhanAktan/PersonalWebsite/blob/master/images/summaraiv1.png?raw=true)|
 |:---:|:---:|
-|Source Website | Resulting Summary |
+|Source Website | Resulting Summary V1|
 
 ### Conclusion
 
