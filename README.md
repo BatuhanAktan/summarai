@@ -26,7 +26,7 @@ npm install cors
 Currently the model is optimized for summarizing news papers and due to that, there are signifcant gaps in the summary, that will require fixing.
 To fix it I will train the model with user based data. I am hoping to implement user feedback within near future so users can rate the summary they recieve which in return will be stored and trained on in addition to all the other datasets.
 
-##V1
+###V1
 Version 1 has been released, the website is now capable of summarizing websites with higher accuracy, as well as, accept user feedback which in return will be used for training of the AI model.
 
 ### Results
