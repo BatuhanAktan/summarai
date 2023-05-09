@@ -7,7 +7,7 @@ const router = express.Router();
 
 router.post('/', (request, response) => {
     url = request.body.url;
-
+    console.log(url);
     //making a fetch request to get html.
     fetch(url)
     .then(response => response.text())
@@ -29,6 +29,10 @@ router.post('/', (request, response) => {
         text+= " " + $(element).text();
     });
 
+    $('[class=paragraph]').each(function(i, element){
+        text+= " " + $(element).text();
+    });
+    console.log(text);
     //summarize according to the extracted text
     let out = summarize({"inputs": text});
 
@@ -53,7 +57,7 @@ async function summarize(ask){
       let value = await fetch(
           "https://api-inference.huggingface.co/models/Alred/t5-small-finetuned-summarization-cnn-ver3",
       {
-        headers: { Authorization: "" },
+        headers: { Authorization: "Bearer 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" },
         method: "POST",
         body: JSON.stringify(ask),
           }

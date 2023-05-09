@@ -1,11 +1,13 @@
-let urlForm = document.getElementById("url-form");
-let rateSubmit = document.getElementById("rating-submit");
 
+let urlForm = document.getElementById("url-form");
+
+
+addEventListener("load", (event) => {
+    startModel();
+
+});
 
 urlForm.addEventListener("submit", (url)=>{
-
-    let feedback  = document.getElementById("feedback");
-    feedback.style.display="none";
 
     //Setting url Location
     let urlLocation = document.getElementById("url");
@@ -28,7 +30,6 @@ urlForm.addEventListener("submit", (url)=>{
     return null;
  
     };
-
 
     //Getting Url Content
     getUrlContent(address);
@@ -57,29 +58,14 @@ const urlCheck = (url) => {
 const typeToSummary = (content, url)=>{
     let summary = document.getElementById("summary");
     summary.textContent=content;
-
-    let rating = document.getElementById("rating");
-    rating.style.display = 'absolute';
-
-    rateSubmit.addEventListener("submit", ()=>{
-        var options = document.getElementsByName("response-quality");
-    
-        for (i = 0; i < options.length; i++){
-            if (options[i].checked){
-                try{
-                    result[i].value.length;
-                    var result = result[i].value;
-                    recordRating(result, url, content);
-                }catch(err){
-                    console.log("Could not submit response");
-                }
-            }
-        }
-    });
-
 };
 
+
+
+
+/*
 async function recordRating(rating, url, response){
+    toggleOff();
     const content = await fetch('/database/rating', {
         method: 'POST',
         headers: {
@@ -90,13 +76,13 @@ async function recordRating(rating, url, response){
         response: JSON.stringify(response)
     });
 }
-
+*/
 
 //Getting Url Content with Server
 async function getUrlContent (url){
     //Prepping JSON
     var urlAddress = url;
-
+    console.log(url);
     url = {url};
 
     //POST Request to Backend to Retrieve HTML
@@ -123,3 +109,37 @@ async function getUrlContent (url){
     //Running the async Function
     o();
 };
+
+
+const startModel = async () => {
+    var url = "https://education.nationalgeographic.org/resource/photosynthesis/";
+    url = {url};
+    const content = await fetch('/summarize', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(url)
+    });
+
+    let returnContent = await content.json();
+
+    console.log("Model Started", returnContent);
+};
+
+/*
+const toggleOn = () => {
+    document.getElementById("rating").style.display = "absolute";
+    setTimeout(() => {console.log(document.getElementById("rating").style.display)});
+}
+
+const toggleOff = () => {
+    document.getElementById("rating").style.display = "none";
+    setTimeout(() => {console.log(document.getElementById("rating").style.display)});
+}
+
+const alarm = () => {
+    let rating = document.getElementById("rating");
+    alert(rating.style.display);
+}
+*/
