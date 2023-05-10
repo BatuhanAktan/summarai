@@ -57,28 +57,24 @@ async function summarize(ask, model){
     //Making request to the ML model.
     try{
       let value = await fetch(
-          "https://api-inference.huggingface.co/models/Alred/t5-small-finetuned-summarization-cnn-ver3",
+          "https://api-inference.huggingface.co/models/Alred/t5-small-finetuned-summarization-cnn-ver2",
       {
-        headers: { Authorization: "Bearer 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" },
+        headers: { Authorization: "Bearer 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" },
         method: "POST",
         body: JSON.stringify(ask),
         }
-      ).then(response => response.json())
-      .then((rsp)=> {
-          console.log(rsp);
-          try{
-            console.log(rsp[0]);
-            return rsp[0].summary_text;
+      )
+      const rsp = await value.json();
+      console.log(rsp[0].error);
 
-          }catch (err) {
-            console.log(err);
-            return rsp[0].error;
-          }
-      });
+      try{
+        return rsp[0].summary_text;
 
-      let out = await value;
+      }catch (err) {
+        console.log(err);
+        return rsp[0].error;
+      }
 
-      return out;
     }catch(error){
       console.log("Error", error);
     }
