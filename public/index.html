@@ -7,6 +7,12 @@
         <div class="feedback">
             <span>Thank you for your Feedback!</span>
         </div>
+        <div class="navbar">
+            <div class="navigation">
+                <a>About</a>
+                <a href="#feedback">Reviews</a>
+            </div>
+        </div>
         <div class="first-section">
             <div class="url-box">
                 <form action="" id="url-form">
@@ -19,45 +25,76 @@
                 </form>
             </div>
         </div>
-        <div class="summary-box">
-            <div class="summary-container">
-                <h1>Summary: </h1>
-                <p id="summary"></p>
+        <div class="summary-grid">
+            <div class="summary-box">
+                <div class="summary-container">
+                    <h1>Summary: </h1>
+                    <p id="summary"></p>
+                </div>
             </div>
-            <div class="rating-container">
-                <div id="rating" display="none">
-                    <label>Rate the Summary</label>
+        </div>
+        <div class="rating-container">
+            <div id="rating" display="none">
+                <label>Rate the Summary</label>
+                <br>
+                <table class="table-response">
+                    <tr>
+                        <td>
+                            <label>Poor</label>
+                            <br>
+                            <input type="radio" name="response-quality" value=1>
+                        </td>
+                        <td>
+                            <label>Ok</label>
+                            <br>
+                            <input type="radio" name="response-quality" value=2>
+                        </td>
+                        <td>
+                            <label>Good</label>
+                            <br>
+                            <input type="radio" name="response-quality" value=3>
+                        </td>
+                        <td>
+                            <label>Great</label>
+                            <br>
+                            <input type="radio" name="response-quality" value=4>
+                        </td>
+                        <td>
+                            <label>Perfect</label>
+                            <br>
+                            <input type="radio" name="response-quality" value=5>
+                        </td>
+                    </tr>
+                </table>
+                <input type="submit" id="rating-submit">
+            </div>
+        </div>
+        <div id="feedback" class="comments-container">
+            <div class="comments-back">
+            <br>
+            <h1>Give Feedback</h1>
+                <div class="write-comment">
+                    <textarea name="comment" id="comment" placeholder="Write your feedback here"></textarea>
                     <br>
-                    <table class="table-response">
-                        <tr>
-                            <td>
-                                <label>Poor</label>
-                                <br>
-                                <input type="radio" name="response-quality" value=1>
-                            </td>
-                            <td>
-                                <label>Ok</label>
-                                <br>
-                                <input type="radio" name="response-quality" value=2>
-                            </td>
-                            <td>
-                                <label>Good</label>
-                                <br>
-                                <input type="radio" name="response-quality" value=3>
-                            </td>
-                            <td>
-                                <label>Great</label>
-                                <br>
-                                <input type="radio" name="response-quality" value=4>
-                            </td>
-                            <td>
-                                <label>Perfect</label>
-                                <br>
-                                <input type="radio" name="response-quality" value=5>
-                            </td>
-                        </tr>
-                    </table>
-                    <input type="submit" id="rating-submit">
+                    <input type="submit" id="comment-submit">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                </div>
+                <div class="comments">
+                    <h1>Top Comments</h1>
+                    <br>
+                    <div class="top-comments" id="top">
+                        <!--
+                        <div class="comment-block">
+                            <h1 class="user">User: </h1>
+                            <p class="comment-text">This app saved my quiz mark</p>
+                            <br>
+                        </div>
+                        -->
+                        <br>
+                    </div>
                 </div>
             </div>
         </div>

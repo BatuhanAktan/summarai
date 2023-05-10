@@ -1,9 +1,19 @@
 
 let urlForm = document.getElementById("url-form");
 let rating = document.getElementById("rating-submit");
+let commentSubmit = document.getElementById("comment-submit")
+
 addEventListener("load", (event) => {
     startModel();
+    getComments();
+});
 
+commentSubmit.addEventListener("click", () => {
+    let comment  = document.getElementById("comment").value;
+    
+    if (comment.length > 1){
+        recordFeedback(comment);
+    }
 });
 
 urlForm.addEventListener("submit", (url)=>{
@@ -52,6 +62,7 @@ rating.addEventListener("click", () => {
     }
 
 });
+
 const urlCheck = (url) => {
     //Checking if the URL is valid
     try{
@@ -74,9 +85,6 @@ const typeToSummary = (content)=>{
     let summary = document.getElementById("summary");
     summary.textContent=content;
 };
-
-
-
 
 
 async function recordRating(rating, url, response){
@@ -113,10 +121,8 @@ async function getUrlContent (url){
     
     //ASYNC function to get value from promise
     const o = async () =>{
-        console.log("OUT");
         let a = await JSON.stringify(returnContent.body.a);
         a = a.slice(1,-1);
-        console.log("OUT", a);
         typeToSummary(a);
     }
 
@@ -141,7 +147,59 @@ const startModel = async () => {
     console.log("Model Started", returnContent);
 };
 
-/*
+
+const recordFeedback = async (feedback) => {
+    feedback = {feedback};
+
+    const content = await fetch('/comments', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(feedback)
+    });
+
+}
+
+
+const getComments = async () => {
+    const content = await fetch('/comments', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    let returnContent = await content.json();
+    let comments  = returnContent.body.results;
+    for(i = 0; i < comments.length; i++){
+
+        const topComment = document.getElementById("top");
+        const container = document.createElement("div");
+
+        const newDiv = document.createElement("div");
+        newDiv.classList.add("comment-block");
+
+        const newHeader = document.createElement("h1");
+        newHeader.innerHTML = "User: ";
+        newHeader.classList.add("user");
+        newDiv.appendChild(newHeader);
+
+        const feedback = document.createElement("p");
+        feedback.innerHTML= comments[i].top;
+        feedback.classList.add("comment-text");
+        newDiv.appendChild(feedback);
+
+        container.appendChild(newDiv);
+        
+        const brk = document.createElement("BR");
+        container.appendChild(brk);
+
+        topComment.appendChild(container);
+    }
+}
+
+    /*
 const toggleOn = () => {
     document.getElementById("rating").style.display = "absolute";
     setTimeout(() => {console.log(document.getElementById("rating").style.display)});

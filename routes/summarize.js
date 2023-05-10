@@ -32,6 +32,10 @@ router.post('/', (request, response) => {
     $('[class=paragraph]').each(function(i, element){
         text+= " " + $(element).text();
     });
+
+    $("span").each(function(i, element){
+      text+= " " + $(element).text();
+    });
     //summarize according to the extracted text
     let out = summarize({"inputs": text});
 
@@ -56,7 +60,7 @@ async function summarize(ask){
       let value = await fetch(
           "https://api-inference.huggingface.co/models/Alred/t5-small-finetuned-summarization-cnn-ver3",
       {
-        headers: { Authorization: "" },
+        headers: { Authorization: "Bearer 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" },
         method: "POST",
         body: JSON.stringify(ask),
           }
@@ -66,7 +70,6 @@ async function summarize(ask){
             var err = rsp[0].error.length;
             return rsp[0].error;
           }catch{
-            console.log(rsp[0].summary_text);
             return rsp[0].summary_text;
           }
       });
