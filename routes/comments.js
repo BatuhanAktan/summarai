@@ -16,7 +16,7 @@ router.post("/", (request, response) => {
     const feedback = request.body.feedback;
 
 
-    con.query(`INSERT INTO comments(comments) VALUES ("${feedback}");`, function(err){
+    con.query(`INSERT INTO topcomments(top) VALUES ("${feedback}");`, function(err){
         if (err) throw err;
     });
     
@@ -30,7 +30,7 @@ router.post("/", (request, response) => {
 router.get("/", (request, response) =>{
     console.log("comments get");
     var con = sql.createConnection(conargs);
-    con.query(`SELECT * FROM topcomments LIMIT 5;`, function(err, results){
+    con.query(`SELECT * FROM topcomments;`, function(err, results){
         if (err) throw err;
             const o = async () => {
                 await response.json({

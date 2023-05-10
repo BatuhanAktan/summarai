@@ -22,7 +22,7 @@ router.post('/', (request, response) => {
     });
 
     const $ = cheerio.load(rsp.data);
-
+    console.log($);
     //Getting all the p elements
     var text = "";
     $("p").each(function(i, element){
@@ -33,7 +33,8 @@ router.post('/', (request, response) => {
         text+= " " + $(element).text();
     });
 
-    //summarize according to the extracted text
+    //summarize according to the extracted text'
+    console.log(text);
     let out = summarize({"inputs": text});
     const o = async () =>{
         let a = await out;
@@ -52,7 +53,7 @@ router.post('/', (request, response) => {
 
 });
 
-async function summarize(ask){
+async function summarize(ask, model){
     //Making request to the ML model.
     try{
       let value = await fetch(
@@ -61,16 +62,17 @@ async function summarize(ask){
         headers: { Authorization: "Bearer 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" },
         method: "POST",
         body: JSON.stringify(ask),
-          }
+        }
       ).then(response => response.json())
       .then((rsp)=> {
+          console.log(rsp);
           try{
-            var err = rsp[0].error.length;
-            console.log(rsp[0]);
-            return rsp[0].error;
-          }catch{
             console.log(rsp[0]);
             return rsp[0].summary_text;
+
+          }catch (err) {
+            console.log(err);
+            return rsp[0].error;
           }
       });
 
