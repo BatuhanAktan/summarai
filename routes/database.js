@@ -29,23 +29,6 @@ router.post("/", (request, response) => {
     con.end();
 });
 
-router.post("/submit", (request, response) => {
-    console.log("comments");
-    var con = sql.createConnection(conargs);
-    try{
-
-    const feedback = request.body.feedback;
-    console.log(feedback);
-    con.query(`INSERT INTO modeldata(url, response, rating) VALUES ("${url}", "${rsp}", ${rating});`, function(err){
-        if (err) throw err;
-    });
-    
-    } catch (err) {
-        console.log(err);
-    }
-
-    con.end();
-});
 
 module.exports = router;
   
