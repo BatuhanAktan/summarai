@@ -153,7 +153,7 @@ const startModel = async () => {
 
 const recordFeedback = async (feedback) => {
     feedback = {feedback};
-
+    $("#comment-submit").attr("disabled", true);
     const content = await fetch('/comments', {
         method: 'POST',
         headers: {

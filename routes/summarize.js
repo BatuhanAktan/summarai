@@ -35,7 +35,15 @@ router.post('/', (request, response) => {
 
     //summarize according to the extracted text'
     console.log(text);
-    let out = summarize({"inputs": text});
+    console.log(text.length);
+    let out ;
+
+    if (text.length > 40000){
+      out = summarize2({"inputs": text});
+    }else{
+      out = summarize({"inputs": text});
+    }
+
     const o = async () =>{
         let a = await out;
         
@@ -79,6 +87,34 @@ async function summarize(ask, model){
       console.log("Error", error);
     }
 }
+
+async function summarize2(ask, model){
+  //Making request to the ML model.
+  try{
+    let value = await fetch(
+        "https://api-inference.huggingface.co/models/Alred/t5-small-finetuned-summarization-cnn-ver3",
+    {
+      headers: { Authorization: "Bearer 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" },
+      method: "POST",
+      body: JSON.stringify(ask),
+      }
+    )
+    const rsp = await value.json();
+    console.log(rsp[0].error);
+
+    try{
+      return rsp[0].summary_text;
+
+    }catch (err) {
+      console.log(err);
+      return rsp[0].error;
+    }
+
+  }catch(error){
+    console.log("Error", error);
+  }
+}
+
 
 
 module.exports = router;
