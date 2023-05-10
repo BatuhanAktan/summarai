@@ -106,7 +106,8 @@ async function recordRating(rating, url, response){
 async function getUrlContent (url){
     //Prepping JSON
     url = {url};
-
+    document.getElementById("loading").innerHTML = "<p> Loading . . . </p>";
+    $(".urlSubmitButton").attr("disabled", true);
     //POST Request to Backend to Retrieve HTML
     const content = await fetch('/summarize', {
         method: 'POST',
@@ -122,6 +123,8 @@ async function getUrlContent (url){
     //ASYNC function to get value from promise
     const o = async () =>{
         let a = await JSON.stringify(returnContent.body.a);
+        document.getElementById("loading").innerHTML = "";
+        $(".urlSubmitButton").attr("disabled", false);
         a = a.slice(1,-1);
         typeToSummary(a);
     }
@@ -157,12 +160,16 @@ const recordFeedback = async (feedback) => {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(feedback)
+    }).then(() => {
+        getComments();
     });
 
 }
 
 
 const getComments = async () => {
+    const topComment = document.getElementById("top");
+    topComment.innerHTML = "";
     const content = await fetch('/comments', {
         method: 'GET',
         headers: {

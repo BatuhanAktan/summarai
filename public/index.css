@@ -36,6 +36,10 @@ body{
     width: auto;
     height: 15vh;
 }
+.loading{
+    display: absolute;
+    height: 15px;
+}
 
 .summary-box{
     text-align: center;
