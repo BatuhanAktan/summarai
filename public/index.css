@@ -2,6 +2,10 @@
     margin: 0px;
     scroll-behavior: smooth;
 }
+a{
+    text-decoration: none;
+    color: blueviolet;
+}
 
 body{
     background: grey;
@@ -24,6 +28,17 @@ body{
 .navbar a:hover{
     color:aliceblue;
     transition-duration: 0.5s;
+}
+
+.alarm{
+    background: darkgray;
+    border-color:  #bfbfbf;
+    border-radius: 20px;
+    padding: 10px;
+    width: 50vw;
+    font-size: large;
+    display: none; 
+    position:absolute;
 }
 
 .first-section{
@@ -105,11 +120,12 @@ td {
     text-align: center;
     padding-left:25vw;
     padding-right: 25vw;
-    height:100vh;
+    min-height:100vh;
 }
 
 .comments-back{
     background: darkgray;
+    border-radius: 20px;
 }
 
 textarea{
@@ -125,7 +141,6 @@ textarea{
 }
 
 .user{
-    display: inline-block;
     font-size: x-large;
     font-weight: bold;
 }
@@ -135,4 +150,30 @@ textarea{
     display: inline-block;
     padding-left: 30px;
     justify-content: space-evenly;
+}
+
+.write-comment{
+    padding-top: 50px;
+}
+
+.about-box{
+    padding-top: 5vh;
+    height: 100vh;
+    justify-content: center;
+    padding-left: 25vw;
+    padding-right: 25vw;
+
+}
+
+.about{
+    text-align: center;
+    background: darkgray;
+    border-radius: 20px;
+    justify-content: center;
+    padding: 5vh;
+}
+
+#about-text{
+    font-size: x-large;
+    text-align: center;
 }

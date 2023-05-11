@@ -4,8 +4,8 @@ let rating = document.getElementById("rating-submit");
 let commentSubmit = document.getElementById("comment-submit")
 
 addEventListener("load", (event) => {
-    startModel();
     getComments();
+    $("div.alarm").fadeIn( 300 ).delay(6000).fadeOut( 400 );
 });
 
 commentSubmit.addEventListener("click", () => {
