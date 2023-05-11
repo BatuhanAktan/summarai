@@ -133,6 +133,10 @@ textarea{
     width: 40vw;
 }
 
+.top-comments{
+    overflow: auto;
+    height: 100vh;
+}
 
 .comment-block{
     margin: auto;
