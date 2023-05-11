@@ -63,7 +63,7 @@ async function summarize(ask, model){
           "https://api-inference.huggingface.co/models/facebook/bart-large-cnn",
         {
         method: "POST",
-        headers: { "Authorization": "Bearer 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",
+        headers: { "Authorization": "",
                   'Content-Type': 'application/json' },
         body: JSON.stringify(ask),
         }
