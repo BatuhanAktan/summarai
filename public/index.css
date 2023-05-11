@@ -1,62 +1,75 @@
+@import url(//db.onlinewebfonts.com/c/396385b48ad7cb2df0fea7b96a899414?family=YouSheBiaoTiHei);
+@import url(//db.onlinewebfonts.com/c/3a8f3a1fc7dd3c5bb3ce44a022654dd5?family=Heebo+Light);
 * {
     margin: 0px;
+    padding: 0;
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
-a{
+li, a, button{
+    font-family: 'YouSheBiaoTiHei';
+    font-weight: 500;
+    font-size: 30px;
+    color: #edf0f1;
     text-decoration: none;
-    color: blueviolet;
+}
+header{
+    background: #010a14;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-left: 30px;
+}
+.navbar-content{
+    list-style: none;
 }
 
-body{
-    background: grey;
-}
-.navbar{
-    height: 7vh;
-    background: #545454;
-}
-.navigation{
-    padding-top: 2vh;
-}
-.navbar a{
-    padding-left: 5vw;
-    font-size: xx-large;
-    text-decoration: none;
-    color: black;
-    font-weight: bold;
+.navbar-content li{
+    display: inline-block;
 }
 
-.navbar a:hover{
-    color:aliceblue;
-    transition-duration: 0.5s;
+.navbar-content li a{
+    transition: all 0.3s ease 0s;
+    padding-right: 50px;
+}
+
+.navbar-content li a:hover{
+    color: #071A5F;
 }
 
 .alarm{
-    background: darkgray;
-    border-color:  #bfbfbf;
+    background: rgba(255,255,255, 0.75);
     border-radius: 20px;
     padding: 10px;
-    width: 50vw;
+    width: 25vw;
     font-size: large;
     display: none; 
     position:absolute;
 }
 
 .first-section{
+    font-family: 'Heebo Light';
+    background:  radial-gradient(#031933, #021326, #021326);
     padding-top: 5vh;
     font-size: x-large;
 }
 
 .url-box{
     text-align:center;
+    font-size: xx-large;
     width: auto;
-    height: 15vh;
+    color: white;
+    width: auto;
+    height: 20vh;
 }
+
 .loading{
     display: absolute;
     height: 15px;
 }
 
 .summary-box{
+    font-family: 'Times New Roman', Times, serif;
     text-align: center;
     padding-top: 5vh;
     width: 50vw;
@@ -64,14 +77,14 @@ body{
     position: relative;
     
 }
-
 .summary-container{
-    background: darkgray;
+    background: white;
     min-height: 40vh;
     min-width: 50vw;
     border-radius: 20px;
     border-style: solid;
-    border-color:  #bfbfbf;
+    border-color:  #010a14;
+    color: #010a14;
     justify-content: center;
 }
 
@@ -82,7 +95,6 @@ body{
     padding-left: 5vw;
     
 }
-
 .table-response{
     margin-left: auto;
     margin-right:auto;
@@ -106,6 +118,7 @@ td {
     justify-content: center;
     text-align: center;
     height: 30vh;
+    color: white;
 }
 
 #rating{
@@ -116,15 +129,16 @@ td {
 }
 
 .comments-container{
+    background: rgba(1, 10, 20, 1);
+    padding: 5vh;
     justify-content: center;
     text-align: center;
     padding-left:25vw;
     padding-right: 25vw;
-    min-height:100vh;
+    min-height:25vh;
 }
 
 .comments-back{
-    background: darkgray;
     border-radius: 20px;
 }
 
@@ -132,16 +146,28 @@ textarea{
     height: 7vh;
     width: 40vw;
 }
-
+.comments-back{
+    color: white;
+}
 .top-comments{
-    overflow: auto;
-    height: 100vh;
+    align-items: center;
+    display: flex;
+    height: 25vh;
+    padding: 20px;
+    animation: scroll 180s linear infinite;
+    width: calc(30vw * 8);
 }
 
+@keyframes scroll {
+	0% { transform: translateX(0); }
+	100% { transform: translateX(calc(-30vw * 8))}
+}
+
+
 .comment-block{
-    margin: auto;
-    width: 40vw;
-    border-style: dotted;
+    color: white;
+    height: 15vh;
+    width: 30vw;
 }
 
 .user{
@@ -162,16 +188,18 @@ textarea{
 
 .about-box{
     padding-top: 5vh;
-    height: 100vh;
+    height: 75vh;
     justify-content: center;
     padding-left: 25vw;
     padding-right: 25vw;
+    background: #021326;
 
 }
 
 .about{
     text-align: center;
-    background: darkgray;
+    background: white;
+    color: black;
     border-radius: 20px;
     justify-content: center;
     padding: 5vh;
@@ -180,4 +208,9 @@ textarea{
 #about-text{
     font-size: x-large;
     text-align: center;
+}
+
+#about-text a{
+    color:rgba(1, 10, 20, 1);
+    width: 20vw;
 }

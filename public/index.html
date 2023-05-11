@@ -10,70 +10,79 @@
         <div class="alarm">
             <span>Current known issue: Server non responsive working on moving models to a better server</span>
         </div>
-        <div class="navbar">
-            <div class="navigation">
-                <a href="#about">About</a>
-                <a href="#feedback">Reviews</a>
-            </div>
-        </div>
+        <header>
+            <img class="logo" height="125px" width="125px" src="./Assets/Summaraiwhite.png" alt="logo">
+            <nav>
+                <ul class="navbar-content">
+                    <li>
+                        <a href="#about">About
+                        </a>
+                        <a href="#feedback">
+                            Feedback
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
         <div class="first-section">
             <div class="url-box">
-                <form action="" id="url-form">
-                    <h1>Welcome to Summar.ai</h1>
-                    <label for="url-in"> Enter the URL to Summarize: </label>
-                    <input class="url-in" id="url" placeholder="Paste the URL">
-                    <br>
-                    <br>
-                    <input class="urlSubmitButton" type="submit">
-                    <br>
-                    <br>
-                    <div id="loading">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="summary-grid">
-            <div class="summary-box">
-                <div class="summary-container">
-                    <h1>Summary: </h1>
-                    <p id="summary"></p>
+                <div class="container">
+                    <form action="" id="url-form">
+                        <h1>Welcome to Summar.ai</h1>
+                        <label for="url-in"> Enter the URL to Summarize: </label>
+                        <input class="url-in" id="url" placeholder="Paste the URL">
+                        <br>
+                        <input class="urlSubmitButton" type="submit">
+                        <br>
+                        <div id="loading">
+                        </div>
+                        <br>
+                    </form>
                 </div>
             </div>
-        </div>
-        <div class="rating-container">
-            <div id="rating" display="none">
-                <label>Rate the Summary</label>
-                <br>
-                <table class="table-response">
-                    <tr>
-                        <td>
-                            <label>Poor</label>
-                            <br>
-                            <input type="radio" name="response-quality" value=1>
-                        </td>
-                        <td>
-                            <label>Ok</label>
-                            <br>
-                            <input type="radio" name="response-quality" value=2>
-                        </td>
-                        <td>
-                            <label>Good</label>
-                            <br>
-                            <input type="radio" name="response-quality" value=3>
-                        </td>
-                        <td>
-                            <label>Great</label>
-                            <br>
-                            <input type="radio" name="response-quality" value=4>
-                        </td>
-                        <td>
-                            <label>Perfect</label>
-                            <br>
-                            <input type="radio" name="response-quality" value=5>
-                        </td>
-                    </tr>
-                </table>
-                <input type="submit" id="rating-submit">
+            <div class="summary-grid">
+                <div class="summary-box">
+                    <div class="summary-container">
+                        <h1 color="#010a14">Summary: </h1>
+                        <p id="summary"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="rating-container">
+                <div id="rating" display="none">
+                    <label>Rate the Summary</label>
+                    <br>
+                    <table class="table-response">
+                        <tr>
+                            <td>
+                                <label>Poor</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=1>
+                            </td>
+                            <td>
+                                <label>Ok</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=2>
+                            </td>
+                            <td>
+                                <label>Good</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=3>
+                            </td>
+                            <td>
+                                <label>Great</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=4>
+                            </td>
+                            <td>
+                                <label>Perfect</label>
+                                <br>
+                                <input type="radio" name="response-quality" value=5>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="submit" id="rating-submit">
+                </div>
             </div>
         </div>
         <div id="feedback" class="comments-container">
@@ -123,6 +132,7 @@ In today's fast-paced world, time is of the essence. Whether you're a student tr
                     Developed with love by Batuhan 
                     <br>
                     <a href="https://github.com/BatuhanAktan"> Github </a>
+                    <br>
                 </p>
             </div>
         </div>

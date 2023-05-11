@@ -30,7 +30,7 @@ router.post("/", (request, response) => {
 router.get("/", (request, response) =>{
     console.log("comments get");
     var con = sql.createConnection(conargs);
-    con.query(`SELECT * FROM topcomments topid DESC;`, function(err, results){
+    con.query(`SELECT * from topcomments order by topid desc;`, function(err, results){
         if (err) throw err;
             const o = async () => {
                 await response.json({
