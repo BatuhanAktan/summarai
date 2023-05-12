@@ -2,6 +2,10 @@ var sql = require('mysql');
 const express = require("express");
 const router = express.Router();
 const conargs = {
+    host: "us-cdbr-east-06.cleardb.net",
+    user: "b4e2217654c222",
+    password: "2d035b905f71fab",
+    database: "heroku_1382bb1b27d36f0"
 };
 
 
