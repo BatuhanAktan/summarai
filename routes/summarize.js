@@ -63,7 +63,7 @@ async function summarize(ask, model){
           "https://api-inference.huggingface.co/models/facebook/bart-large-cnn",
         {
         method: "POST",
-        headers: { "Authorization": "Bearer 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",
+        headers: { "Authorization": "",
                   'Content-Type': 'application/json' },
         body: JSON.stringify(ask),
         }
@@ -82,62 +82,6 @@ async function summarize(ask, model){
     }catch(error){
       console.log("Error", error);
     }
-}
-
-async function summarize2(ask, model){
-  //Making request to the ML model.
-  try{
-    let value = await fetch(
-      "https://ai40hfidydwyf4d2.us-east-1.aws.endpoints.huggingface.cloud",
-    {
-    method: "POST",
-    headers: { "Authorization": "Bearer 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",
-              'Content-Type': 'application/json' },
-    body: JSON.stringify(ask),
-    }
-    )
-    const rsp = await value.json();
-    console.log(rsp[0].error);
-
-    try{
-      return rsp[0].summary_text;
-
-    }catch (err) {
-      console.log(err);
-      return rsp[0].error;
-    }
-
-  }catch(error){
-    console.log("Error", error);
-  }
-}
-
-async function summarize3(ask, model){
-  //Making request to the ML model.
-  try{
-    let value = await fetch(
-      "https://ai40hfidydwyf4d2.us-east-1.aws.endpoints.huggingface.cloud",
-    {
-    method: "POST",
-    headers: { "Authorization": "Bearer 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",
-              'Content-Type': 'application/json' },
-    body: JSON.stringify(ask),
-    }
-    )
-    const rsp = await value.json();
-    console.log(rsp[0].error);
-
-    try{
-      return rsp[0].summary_text;
-
-    }catch (err) {
-      console.log(err);
-      return rsp[0].error;
-    }
-
-  }catch(error){
-    console.log("Error", error);
-  }
 }
 
 
