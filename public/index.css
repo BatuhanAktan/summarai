@@ -288,6 +288,11 @@ footer{
         padding-left: 5vw;        
     }
 
+    #summary{
+        max-width: 90vw;
+        padding: 5vw;
+        
+    }
     .rating-container{
         font-size: 20px;
     }
