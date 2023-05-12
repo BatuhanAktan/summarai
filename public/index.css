@@ -295,6 +295,7 @@ footer{
     }
     .rating-container{
         font-size: 20px;
+        overflow: hidden;
     }
     .alarm{
         width: 95vw;

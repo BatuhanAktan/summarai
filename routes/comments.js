@@ -4,7 +4,7 @@ const router = express.Router();
 const conargs = {
     host: "us-cdbr-east-06.cleardb.net",
     user: "b4e2217654c222",
-    password: "4a20cd77",
+    password: "6fc1b21c4edd21e",
     database: "heroku_1382bb1b27d36f0"
 };
 

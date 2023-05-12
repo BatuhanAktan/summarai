@@ -63,7 +63,7 @@ async function summarize(ask, model){
           "https://api-inference.huggingface.co/models/facebook/bart-large-cnn",
         {
         method: "POST",
-        headers: { "Authorization": "Bearer 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",
+        headers: { "Authorization": "Bearer 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",
                   'Content-Type': 'application/json' },
         body: JSON.stringify(ask),
         }
@@ -91,7 +91,7 @@ async function summarize2(ask, model){
       "https://ai40hfidydwyf4d2.us-east-1.aws.endpoints.huggingface.cloud",
     {
     method: "POST",
-    headers: { "Authorization": "Bearer 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",
+    headers: { "Authorization": "Bearer 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",
               'Content-Type': 'application/json' },
     body: JSON.stringify(ask),
     }
@@ -119,7 +119,7 @@ async function summarize3(ask, model){
       "https://ai40hfidydwyf4d2.us-east-1.aws.endpoints.huggingface.cloud",
     {
     method: "POST",
-    headers: { "Authorization": "Bearer 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",
+    headers: { "Authorization": "Bearer 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",
               'Content-Type': 'application/json' },
     body: JSON.stringify(ask),
     }
