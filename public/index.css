@@ -272,6 +272,14 @@ footer{
 }
 
 @media (max-width: 1300px){
+    .url-box{
+        height: auto;
+    }
+    .url-in{
+        width: 90vw;
+        height: 5vw;
+    }
+
     .summary-container{
         min-width: 90vw;
     }
