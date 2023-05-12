@@ -2,6 +2,8 @@
 <html>
     <head>
         <link rel="stylesheet" href="index.css">
+        <meta htttp-equiv="X-UA-Compatible" content="ie=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
     <body>
         <div class="feedback">
@@ -85,11 +87,31 @@
                 </div>
             </div>
         </div>
+        <div class="supported-sites">
+            <h1>Some Of The Sites We Currently Support</h1>
+            <br>
+            <div class="sites-container">
+                <div class="site">
+                    <a href="https://en.wikipedia.org/wiki/Main_Page" target="_blank">
+                        <img height="auto" width="300px" src="https://upload.wikimedia.org/wikipedia/commons/6/61/Wikipedia-logo-transparent.png" alt="Wikipedia">
+                    </a>
+                </div>
+                <br>
+                <div class="site">
+                    <a href="https://www.khanacademy.org/" target="_blank">
+                        <img height="auto" width="300px" src="./Assets/khanacademy.png" alt="Khan Academy">
+                    </a>
+                </div>
+                
+            </div>
+        </div>
         <div id="feedback" class="comments-container">
             <div class="comments-back">
             <br>
                 <div class="comments">
                     <h1>Top Comments</h1>
+                    <br>
+                    <hr>
                     <br>
                     <div class="top-comments" id="top">
                         <!--
@@ -101,7 +123,10 @@
                         -->
                         <br>
                     </div>
+                    <hr>
+                    <br>
                 </div>
+                <br>
                 <h1>Give Feedback</h1>
                 <div class="write-comment">
                     <textarea name="comment" id="comment" placeholder="Write your feedback here"></textarea>
@@ -116,7 +141,9 @@
         </div>
         <div class="about-box">
             <div class="about" id="about">
-                <h1>About</h1>
+                <div class="about-title">
+                    <h1>About</h1>
+                </div>
                 <br>
                 <br>
                 <p id="about-text">
@@ -136,6 +163,17 @@ In today's fast-paced world, time is of the essence. Whether you're a student tr
                 </p>
             </div>
         </div>
+        <footer>
+            <div class="footer-container">
+                <h1> Socials </h1>
+                <div class="socials">
+                    <div class="social-container">
+                        <a href="https://twitter.com/batuhanaktan5" target="_blank"><img height="32px" src="./Assets/twitter.png" alt="Twitter"></a>
+                    </div>
+                </div>
+                <div class="license"> MIT License </div>
+            </div>
+        </footer>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="main.js"></script>

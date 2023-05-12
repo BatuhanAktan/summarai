@@ -55,6 +55,7 @@ header{
 }
 
 .url-box{
+    overflow: hidden;
     text-align:center;
     font-size: xx-large;
     width: auto;
@@ -127,19 +128,45 @@ td {
     padding-bottom: 5vh;
     font-size: larger; 
 }
-
-.comments-container{
-    background: rgba(1, 10, 20, 1);
-    padding: 5vh;
-    justify-content: center;
+.supported-sites{
+    background: #010a14;
+    color: white;
+    font-family: 'YouSheBiaoTiHei';
+    font-size: 20px;
+    border: rgb(236, 251, 255);
     text-align: center;
-    padding-left:25vw;
-    padding-right: 25vw;
-    min-height:25vh;
+    height: 35vh;
+    padding: 5vh;
+    min-height: 330px;
+}
+.sites-container{
+    padding-top: 5vh;
+    padding-left: 25vw;
+    width:40vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
+.sites a:hover{
+    cursor: pointer;
+}
+.comments-container{
+    background: radial-gradient(#031933, #021326, #021326);
+    padding-top: 5vh;
+    justify-content: center;
+    text-align: center;
+    min-height:25vh;
+    color: white;
+    font-family: 'Heebo Light';
+    overflow: hidden;
+}
 .comments-back{
     border-radius: 20px;
+}
+.comments{
+    font-family: "Heebo Light";
+    font-size: 26px;
 }
 
 textarea{
@@ -155,19 +182,20 @@ textarea{
     height: 25vh;
     padding: 20px;
     animation: scroll 180s linear infinite;
-    width: calc(30vw * 8);
+    width: calc(40vw * 8);
+    overflow: hidden;
 }
 
 @keyframes scroll {
 	0% { transform: translateX(0); }
-	100% { transform: translateX(calc(-30vw * 8))}
+	100% { transform: translateX(calc(-40vw * 8))}
 }
 
 
 .comment-block{
     color: white;
-    height: 15vh;
-    width: 30vw;
+    height: 25vh;
+    width: 35vw;
 }
 
 .user{
@@ -188,11 +216,11 @@ textarea{
 
 .about-box{
     padding-top: 5vh;
-    height: 75vh;
+    height: 60vh;
     justify-content: center;
     padding-left: 25vw;
     padding-right: 25vw;
-    background: #021326;
+    background: #010a14;
 
 }
 
@@ -203,14 +231,110 @@ textarea{
     border-radius: 20px;
     justify-content: center;
     padding: 5vh;
+    padding-top: 2vh;
 }
-
+.about-title{
+    font-family: "Heebo Light";
+    font-size: 20px;
+}
 #about-text{
     font-size: x-large;
     text-align: center;
+    font-family: "Heebo Light";
 }
 
 #about-text a{
     color:rgba(1, 10, 20, 1);
     width: 20vw;
+}
+
+footer{
+    height: 15vh;
+    background: radial-gradient(#031933, #021326, #021326);
+    padding: 2vh;
+}
+.footer-container{
+    text-align: center;
+    color: white;
+    font-family: 'YouSheBiaoTiHei';
+    font-size: 22px;
+}
+.license{
+    text-align: center;
+    color:rgba(255,255,255, 0.75);
+    float: bottom;
+}
+.socials{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 5vh;
+}
+
+@media (max-width: 1300px){
+    .summary-container{
+        min-width: 90vw;
+    }
+    .summary-box{
+        width: 90vw;
+        padding-left: 5vw;        
+    }
+
+    .rating-container{
+        font-size: 20px;
+    }
+    .alarm{
+        width: 95vw;
+    }
+
+    .top-comments{
+        width: calc(150vw * 8);
+    }
+
+    @keyframes scroll {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-150vw * 8))}
+    }
+    .comment-block{
+        width: 110vw;
+    }
+    .comment-text{
+        font-size: 20px;
+    }
+    .supported-sites{
+        min-height: 40vh;
+        padding: 0vw;
+        height: auto;
+        padding-bottom: 10vh;
+    }
+    .sites-container{
+        padding-top: 5vh;
+        padding-left: 2vw;
+        width:100vw;
+        display: block;
+    }
+
+    .comment-block{
+        width: 90vw;
+    }
+
+    #comment{
+        width: 90vw;
+    }
+
+    .about-box{
+        padding-right: 2vw;
+        padding-left: 2vw;
+        padding-bottom: 5vh;
+        height: auto;
+    }
+    .about{
+        padding:2vw;
+        font-size: 20px;
+    }
+
+    footer{
+        overflow: hidden;
+    }
+    
 }
