@@ -1,5 +1,5 @@
-@import url(//db.onlinewebfonts.com/c/396385b48ad7cb2df0fea7b96a899414?family=YouSheBiaoTiHei);
-@import url(//db.onlinewebfonts.com/c/3a8f3a1fc7dd3c5bb3ce44a022654dd5?family=Heebo+Light);
+@font-face {font-family: "Heebo Light"; src: url("//db.onlinewebfonts.com/t/3a8f3a1fc7dd3c5bb3ce44a022654dd5.eot"); src: url("//db.onlinewebfonts.com/t/3a8f3a1fc7dd3c5bb3ce44a022654dd5.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3a8f3a1fc7dd3c5bb3ce44a022654dd5.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3a8f3a1fc7dd3c5bb3ce44a022654dd5.woff") format("woff"), url("//db.onlinewebfonts.com/t/3a8f3a1fc7dd3c5bb3ce44a022654dd5.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3a8f3a1fc7dd3c5bb3ce44a022654dd5.svg#Heebo Light") format("svg"); }
+@font-face {font-family: "YouSheBiaoTiHei"; src: url("//db.onlinewebfonts.com/t/396385b48ad7cb2df0fea7b96a899414.eot"); src: url("//db.onlinewebfonts.com/t/396385b48ad7cb2df0fea7b96a899414.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/396385b48ad7cb2df0fea7b96a899414.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/396385b48ad7cb2df0fea7b96a899414.woff") format("woff"), url("//db.onlinewebfonts.com/t/396385b48ad7cb2df0fea7b96a899414.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/396385b48ad7cb2df0fea7b96a899414.svg#YouSheBiaoTiHei") format("svg"); }
 * {
     margin: 0px;
     padding: 0;
@@ -12,6 +12,29 @@ li, a, button{
     font-size: 30px;
     color: #edf0f1;
     text-decoration: none;
+}
+input{
+    vertical-align: middle;
+}
+input[type="submit"]{
+    background: transparent;
+    color: #dbdee6;
+    padding: 10px;
+    border-color: #dbdee6;
+    border-width: 2px;
+    border-radius: 10px;
+    font-size: 20px;
+    border-style: ridge;
+}
+input[type="submit"]:hover{
+    color: #ffffff;
+    border-color: #ffffff;
+}
+
+input[type="submit"]:disabled{
+    opacity: 0.5;
+    color: #edf0f1;
+    border-color: #edf0f1;
 }
 header{
     background: #010a14;
@@ -65,12 +88,12 @@ header{
     width: auto;
     color: white;
     width: auto;
-    height: 20vh;
+    min-height: 20vh;
 }
 
 .loading{
     display: absolute;
-    height: 15px;
+    min-height: 15px;
 }
 
 .summary-box{
@@ -122,14 +145,18 @@ td {
 .rating-container{
     justify-content: center;
     text-align: center;
-    height: 30vh;
+    min-height: 30vh;
     color: white;
+}
+
+.rating-feedback{
+    display: none;
 }
 
 #rating{
     bottom:0;
     padding-top:5vh;
-    padding-bottom: 5vh;
+    padding-bottom: 1vh;
     font-size: larger; 
 }
 .supported-sites{
@@ -139,19 +166,23 @@ td {
     font-size: 20px;
     border: rgb(236, 251, 255);
     text-align: center;
-    height: 35vh;
+    height: auto;
     padding: 5vh;
     min-height: 330px;
 }
 .sites-container{
     padding-top: 5vh;
     padding-left: 25vw;
-    width:40vw;
+    padding-right: 25vw;
+    min-width:40vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
-
+.site{
+    min-width: 300px;
+    padding-left: 20px;
+}
 .sites a:hover{
     cursor: pointer;
 }
@@ -180,11 +211,11 @@ td {
 }
 .textarea-username{
     text-align: left;
-    height: 20px;
+    min-height: 20px;
     width: 20vw;
 }
 .textarea-comment{
-    height: 7vh;
+    min-height: 7vh;
     width: 40vw;
 }
 .comments-back{
@@ -231,7 +262,7 @@ td {
 
 .about-box{
     padding-top: 5vh;
-    height: 60vh;
+    min-height: 60vh;
     justify-content: center;
     padding-left: 25vw;
     padding-right: 25vw;
@@ -264,7 +295,7 @@ td {
 }
 
 footer{
-    height: 15vh;
+    min-height: 15vh;
     background: radial-gradient(#031933, #021326, #021326);
     padding: 2vh;
 }
@@ -338,7 +369,8 @@ footer{
     }
     .sites-container{
         padding-top: 5vh;
-        padding-left: 2vw;
+        padding-left: 5vw;
+        padding-right: 5vw;
         width:100vw;
         display: block;
     }

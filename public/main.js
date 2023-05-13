@@ -68,7 +68,7 @@ rating.addEventListener("click", () => {
     
     if (val != 0 && modelResp.length > 0 && modelResp != "That Url doesn't seem to work!"){
         var urlAddress = document.getElementById("url").value;
-        $("div.feedback").fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
+        $("div.rating-feedback").fadeIn( 300 ).delay( 1500 ).fadeOut( 400 );
         recordRating(val, urlAddress, modelResp);
     }
 
