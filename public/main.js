@@ -214,8 +214,13 @@ const userId = ()  => {
     try{
         let id = uidarr[0].slice(4);
         let intId = parseInt(id);
-    }catch{
-        genUid();
+        if (isNaN(intId)){
+            genUid();
+        }else{
+            console.log("User Exists");
+        }
+    }catch (err) {
+        console.log("Something went wrong");
     }
 }
 
