@@ -6,6 +6,7 @@ let commentSubmit = document.getElementById("comment-submit")
 addEventListener("load", (event) => {
     getComments();
     $("div.alarm").fadeIn( 300 ).delay(6000).fadeOut( 400 );
+    userId();
 });
 
 commentSubmit.addEventListener("click", () => {
@@ -204,6 +205,33 @@ const getComments = async () => {
 
         topComment.appendChild(container);
     }
+}
+
+
+const userId = ()  => {
+    let uid = document.cookie;
+    let uidarr = uid.split(';');
+    try{
+        let id = uidarr[0].slice(4);
+        let intId = parseInt(id);
+    }catch{
+        genUid();
+    }
+}
+
+const genUid = async () => {
+    const content = await fetch('/database', {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+
+    let rsp = await content.json();
+
+    let id = rsp.body.uid;
+
+    document.cookie = `uid=${id};` + "expires=Thu, 18 Dec 2024 12:00:00 UTC";
 }
 
     /*

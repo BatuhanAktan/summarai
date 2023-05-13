@@ -29,6 +29,37 @@ router.post("/", (request, response) => {
     con.end();
 });
 
+router.get("/", (request, response) => {
+    console.log("In DATABASE GET");
+    var con = sql.createConnection(conargs);
+
+    con.query(`SELECT max(id) as id FROM users`, function(err, results){
+        let uid = results[0].id + 1;
+        insertId(uid);
+        const o = async () => {
+            await response.json({
+                status: 'success',
+                body: {uid}
+            });
+        }
+        o();
+
+    });
+
+    con.end();
+});
+
+
+const insertId = (uid) => {
+    var con = sql.createConnection(conargs);
+
+    con.query(`INSERT INTO users(id) VALUES (${uid})`, function(err){
+        console.log("Inserted");
+    });
+
+    con.end();
+}
+
 
 module.exports = router;
   
