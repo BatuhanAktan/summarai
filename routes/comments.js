@@ -14,9 +14,10 @@ router.post("/", (request, response) => {
     try{
 
     const feedback = request.body.feedback;
+    const user = request.body.user;
+    console.log(user);
 
-
-    con.query(`INSERT INTO topcomments(top) VALUES ("${feedback}");`, function(err){
+    con.query(`INSERT INTO topcomments(top, name) VALUES ("${feedback}", "${user}");`, function(err){
         if (err) throw err;
     });
     

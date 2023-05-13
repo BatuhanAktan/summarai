@@ -1,7 +1,7 @@
 
 let urlForm = document.getElementById("url-form");
 let rating = document.getElementById("rating-submit");
-let commentSubmit = document.getElementById("comment-submit")
+let commentSubmit = document.getElementById("csubmit");
 
 addEventListener("load", (event) => {
     getComments();
@@ -10,10 +10,20 @@ addEventListener("load", (event) => {
 });
 
 commentSubmit.addEventListener("click", () => {
+    $(".csubmitbutton").attr("disabled", true);
     let comment  = document.getElementById("comment").value;
-    
-    if (comment.length > 1){
-        recordFeedback(comment);
+    let user = document.getElementById("usern").value;
+    if (user.length > 1 && comment.length > 1){
+        $("div.user-feedback").fadeIn( 300 ).delay(6000).fadeOut( 400 );
+        user = user + ":";
+        recordFeedback(comment, user);
+    }else if (comment.length > 1){
+        $("div.user-feedback").fadeIn( 300 ).delay(6000).fadeOut( 400 );
+        recordFeedback(comment, "User:");
+    }else{
+        $(".csubmitbutton").attr("disabled", false);
+        console.log("Cannot Submit");
+        
     }
 });
 
@@ -152,8 +162,9 @@ const startModel = async () => {
 };
 
 
-const recordFeedback = async (feedback) => {
-    feedback = {feedback};
+const recordFeedback = async (feedback, user) => {
+    feedback = {feedback,
+        user};
     $("#comment-submit").attr("disabled", true);
     const content = await fetch('/comments', {
         method: 'POST',
@@ -180,6 +191,8 @@ const getComments = async () => {
 
     let returnContent = await content.json();
     let comments  = returnContent.body.results;
+
+    console.log(comments[0].name);
     for(i = 0; i < comments.length; i++){
 
         const topComment = document.getElementById("top");
@@ -189,7 +202,7 @@ const getComments = async () => {
         newDiv.classList.add("comment-block");
 
         const newHeader = document.createElement("h1");
-        newHeader.innerHTML = "User: ";
+        newHeader.innerHTML = comments[i].name;
         newHeader.classList.add("user");
         newDiv.appendChild(newHeader);
 

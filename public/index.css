@@ -36,14 +36,18 @@ header{
 .navbar-content li a:hover{
     color: #071A5F;
 }
-
+.user-feedback{
+    display: None;
+    position: absolute;
+    padding-left: 30vw;
+}
 .alarm{
     background: rgba(255,255,255, 0.75);
     border-radius: 20px;
     padding: 10px;
     width: 25vw;
     font-size: large;
-    display: none; 
+    display: fixed; 
     position:absolute;
 }
 
@@ -168,8 +172,18 @@ td {
     font-family: "Heebo Light";
     font-size: 26px;
 }
-
-textarea{
+.username-box{
+    padding-left: 30vw;
+    width: 40vw;
+    text-align: left;
+    justify-content: center;
+}
+.textarea-username{
+    text-align: left;
+    height: 20px;
+    width: 20vw;
+}
+.textarea-comment{
     height: 7vh;
     width: 40vw;
 }
@@ -211,7 +225,8 @@ textarea{
 }
 
 .write-comment{
-    padding-top: 50px;
+    padding-top: 100px;
+    justify-content: center;
 }
 
 .about-box{
@@ -330,6 +345,15 @@ footer{
 
     .comment-block{
         width: 90vw;
+    }
+
+    .username-box{
+        padding-left: 5vw;
+        width: 90vw;
+    }
+
+    .user-feedback{
+        padding-left: 5vw;
     }
 
     #comment{
