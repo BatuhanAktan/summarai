@@ -28,6 +28,7 @@ input[type="submit"]{
 }
 input[type="submit"]:hover{
     color: #ffffff;
+    background:radial-gradient(#ffffff05,#ffffff15);
     border-color: #ffffff;
 }
 
@@ -59,6 +60,96 @@ header{
 .navbar-content li a:hover{
     color: #071A5F;
 }
+
+.welcome-bg{
+    height: calc(100vh - 125px);
+    background-image: url("./Assets/background.jpg");
+    background-size: 100vw auto;
+    background-repeat: no-repeat;
+}
+
+.welcome{
+    height: calc(100vh - 125px);
+    background:#120e54d8;
+    justify-content: center;
+}
+.welcome-section{
+    padding-top: 30vh;
+    padding-left: 10vw;
+    min-height: 20vh;
+}
+
+.welcome-title{
+    font-family: 'YouSheBiaoTiHei';
+    color: rgb(202, 202, 202);
+    font-size: 102px;
+    padding-bottom: 10px;
+}
+.welcome-title p{
+    font-size: 40px;
+}
+.welcome-text{
+    font-size: 52px;
+    height: 72px;
+    font-weight: 200;
+    color: rgb(202, 202, 202);
+    font-family:  "Microsoft Yahei";
+    display: flex;
+    gap: 20px;
+}
+
+.words{
+    display:block;
+    position: relative;
+    animation: words-animation 10s infinite;
+}
+
+.word-wrapper{
+    overflow: hidden;
+    height:100%;
+    border-width:10px;
+    border-color:white;
+}
+
+@keyframes words-animation {
+	0% 
+    { transform: translateY(0%)}
+    15%{transform: translateY(0%)}
+	25% {transform: translateY(-25%)}
+    40% {transform: translateY(-25%)}
+    50% { transform: translateY(-50%)}
+    65% { transform: translateY(-50%)}
+    75% { transform: translateY(-75%)}
+    90% { transform: translateY(-75%)}
+    100% { transform: translateY(0%)}
+}
+
+.start-url{
+    padding-top: 20vh;
+    position:relative;
+    text-align: center;
+    overflow: hidden;
+}
+
+.start-url img{
+    animation-delay: 2s;
+    animation: arrow 3s infinite;
+}
+
+@keyframes arrow {
+    0%{
+        transform: rotate(90deg) scale(1);
+    }
+    50%{
+        transform: rotate(90deg) scale(1.1);
+    }
+    100%{
+        transform: rotate(90deg) scale(1);
+    }
+    
+}
+
+
 .user-feedback{
     display: None;
     position: absolute;
@@ -318,6 +409,31 @@ footer{
 }
 
 @media (max-width: 1300px){
+    .welcome{
+        text-align: center;
+    }
+    .welcome-bg{
+        background-size: auto calc(100vh - 125px);
+    }
+    .welcome-section{
+        padding-left: 0;
+        height: auto;
+    }
+
+    .welcome-title{
+        font-size: 42px;
+    }
+    
+    .welcome-text{
+        font-size: 32px;
+        height: 50px;
+        justify-content: center;
+    }
+    
+    .welcome-title{
+        padding-left:0px;
+    }
+
     .url-box{
         height: auto;
     }
@@ -361,6 +477,9 @@ footer{
     .comment-text{
         font-size: 20px;
     }
+    .site{
+        padding-left: 0px;
+    }
     .supported-sites{
         min-height: 40vh;
         padding: 0vw;
@@ -369,7 +488,7 @@ footer{
     }
     .sites-container{
         padding-top: 5vh;
-        padding-left: 5vw;
+        padding-left: 0vw;
         padding-right: 5vw;
         width:100vw;
         display: block;
